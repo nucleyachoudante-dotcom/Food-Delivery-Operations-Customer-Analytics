@@ -1,0 +1,42 @@
+sql/01_basic_analysis.sql 
+ 
+
+-- How many orders were placed?
+
+SELECT COUNT(*) AS total_orders
+FROM food_delivery;
+
+
+-- Total revenue generated?
+
+SELECT ROUND(SUM(final_amount_paid),2) AS total_revenue
+FROM food_delivery;
+
+
+-- Revenue by city tier
+
+SELECT
+city_tier,
+ROUND(SUM(final_amount_paid),2) revenue
+FROM food_delivery
+GROUP BY city_tier
+ORDER BY revenue DESC;
+
+
+-- Premium vs Non Premium Revenue
+
+SELECT
+premium_customer_flag,
+ROUND(SUM(final_amount_paid),2) revenue
+FROM food_delivery
+GROUP BY premium_customer_flag;
+
+
+-- Monthly Revenue Trend
+
+SELECT
+order_month,
+ROUND(SUM(final_amount_paid),2) revenue
+FROM food_delivery
+GROUP BY order_month
+ORDER BY order_month;

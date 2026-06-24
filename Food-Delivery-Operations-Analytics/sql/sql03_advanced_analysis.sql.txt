@@ -1,0 +1,59 @@
+sql/03_advanced_analysis.sql 
+
+
+-- Cancellation Rate
+
+SELECT
+ROUND(
+SUM(cancellation_flag)*100.0
+/
+COUNT(*),2
+) cancellation_rate
+FROM food_delivery;
+
+
+-- City Wise Cancellation Rate
+
+SELECT
+city_tier,
+ROUND(
+SUM(cancellation_flag)*100.0
+/
+COUNT(*),2
+) cancellation_rate
+FROM food_delivery
+GROUP BY city_tier;
+
+
+-- Revenue Contribution %
+
+SELECT
+restaurant_category,
+ROUND(
+SUM(final_amount_paid)*100.0/
+(
+SELECT SUM(final_amount_paid)
+FROM food_delivery
+),2
+) contribution_pct
+FROM food_delivery
+GROUP BY restaurant_category;
+
+-- Highest Revenue Categories
+
+SELECT
+restaurant_category,
+ROUND(SUM(final_amount_paid),2)
+FROM food_delivery
+GROUP BY restaurant_category
+ORDER BY 2 DESC;
+
+
+-- Top Customer Segments
+
+SELECT
+customer_loyalty_score,
+COUNT(*) total_orders
+FROM food_delivery
+GROUP BY customer_loyalty_score
+ORDER BY total_orders DESC;

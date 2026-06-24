@@ -1,0 +1,51 @@
+02_operational_analysis.sql
+
+
+-- Average Delivery Time
+
+SELECT
+ROUND(
+AVG(delivery_time_minutes),2
+) avg_delivery_time
+FROM food_delivery;
+
+
+-- Delivery Time by City Tier
+
+SELECT
+city_tier,
+ROUND(
+AVG(delivery_time_minutes),2
+)
+FROM food_delivery
+GROUP BY city_tier;
+
+
+-- Delayed Delivery Percentage
+
+SELECT
+ROUND(
+SUM(delayed_delivery_flag)*100.0
+/
+COUNT(*),2
+) delayed_percentage
+FROM food_delivery;
+
+
+-- Peak Ordering Hours
+
+SELECT
+order_hour,
+COUNT(*) total_orders
+FROM food_delivery
+GROUP BY order_hour
+ORDER BY total_orders DESC;
+
+
+-- Weekend vs Weekday Revenue
+
+SELECT
+festival_or_weekend_flag,
+ROUND(SUM(final_amount_paid),2)
+FROM food_delivery
+GROUP BY festival_or_weekend_flag;
