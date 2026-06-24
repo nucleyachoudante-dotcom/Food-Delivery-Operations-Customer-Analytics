@@ -33,6 +33,3 @@ Analyze food delivery operations and identify factors affecting revenue, deliver
 - Delivery delays reduced customer ratings.
 - Long-distance deliveries had higher delays.
 
-## Dashboard Screenshots
-
-(Add screenshots)
