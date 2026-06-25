@@ -49,6 +49,7 @@ Recommendation:
 Optimize rider allocation during peak demand.
 
 ##Insight 3
+
 Higher traffic and bad weather increase delivery times.
 
 Recommendation:
@@ -56,6 +57,7 @@ Recommendation:
 Introduce dynamic ETA models.
 
 ##Insight 4
+
 Delivery delays negatively affect customer ratings.
 
 Recommendation:
@@ -63,6 +65,7 @@ Recommendation:
 Reduce late deliveries to improve customer retention.
 
 ##Insight 5
+
 Certain restaurant categories contribute most of the revenue.
 
 Recommendation:
